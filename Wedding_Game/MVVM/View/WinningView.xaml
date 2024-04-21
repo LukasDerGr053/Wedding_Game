@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="Wedding_Game.MVVM.View.WinningView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Wedding_Game.MVVM.View"
+             mc:Ignorable="d">
+
+    <Border Style="{StaticResource BackgroundTheme}">
+        <StackPanel>
+            <TextBlock Text="Winner Winner Chicken Dinner!"
+                       Style="{StaticResource WinnerPhraseTheme}" />
+            <TextBlock Text="{Binding Winner.Name}"
+                       Style="{StaticResource WinnerNameTheme}" />
+            <TextBlock Text="{Binding Winner.Points}"
+                       Style="{StaticResource WinnerPointsTheme}" />
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button Command="{Binding BackCommand}"
+                        Content="Back"
+                        Style="{StaticResource StartButtonTheme}" />
+                <Button Command="{Binding CloseCommand}"
+                        Content="Close"
+                        Style="{StaticResource StartButtonTheme}" />
+            </StackPanel>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Image Source="{Binding Price0.Source}"
+                       Grid.Column="0"
+                       Style="{StaticResource PriceImageTheme}">
+                    <Image.InputBindings>
+                        <MouseBinding Gesture="LeftClick"
+                                      Command="{Binding ChangeImage0Command}" />
+                    </Image.InputBindings>
+                </Image>
+
+                <Image Source="{Binding Price1.Source}"
+                       Grid.Column="1"
+                       Style="{StaticResource PriceImageTheme}">
+                    <Image.InputBindings>
+                        <MouseBinding Gesture="LeftClick"
+                                      Command="{Binding ChangeImage1Command}" />
+                    </Image.InputBindings>
+                </Image>
+                <Image Source="{Binding Price2.Source}"
+                       Grid.Column="2"
+                       Style="{StaticResource PriceImageTheme}">
+                    <Image.InputBindings>
+                        <MouseBinding Gesture="LeftClick"
+                                      Command="{Binding ChangeImage2Command}" />
+                    </Image.InputBindings>
+                </Image>
+            </Grid>
+
+            <TextBlock Text="{Binding Massage}"
+                       Style="{StaticResource MessageTheme}" />
+        </StackPanel>
+    </Border>
+
+
+</UserControl>

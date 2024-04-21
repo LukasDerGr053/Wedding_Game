@@ -1,0 +1,33 @@
+﻿<Application x:Class="Wedding_Game.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Wedding_Game"
+             xmlns:viewModel="clr-namespace:Wedding_Game.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Wedding_Game.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MasterTheme.xaml" />
+                <ResourceDictionary Source="Themes/MainTheme.xaml" />
+                <ResourceDictionary Source="Themes/StartTheme.xaml" />
+                <ResourceDictionary Source="Themes/GameTheme.xaml" />
+                <ResourceDictionary Source="Themes/GameTemplate.xaml" />
+                <ResourceDictionary Source="Themes/WinnerTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:StartViewModel}">
+                <view:StartView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:GameViewModel}">
+                <view:GameView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:WinningViewModel}">
+                <view:WinningView />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
